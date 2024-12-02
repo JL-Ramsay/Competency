@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competency Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #0d3050;
+            color: white;
+            line-height: 1.5;
+        }
+        .form-container {
+            width: 90%;
+            max-width: 50rem;
+            background: #0194d3;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.2);
+        }
+        .hidden {
+            display: none;
+        }
+        label, input, select, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        input, select, button {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: none;
+        }
+        button {
+            background: #0056b3;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #003d80;
+        }
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+        .quiz-option input {
+            width: auto;
+            margin-right: 0.5rem;
+            margin-bottom: 0;
+            vertical-align: middle;
+        }
+        .quiz-option label {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <form id="user-info-form">
+        <h1>User Information</h1>
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" name="full-name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="role">Role:</label>
+        <input type="text" id="role" name="role" required>
+
+        <label for="state">State:</label>
+        <select id="state" name="state" required>
+            <option value="NSW">NSW</option>
+            <option value="VIC">VIC</option>
+            <option value="QLD">QLD</option>
+            <option value="SA">SA</option>
+            <option value="WA">WA</option>
+        </select>
+
+        <label for="facility-name">Name of your facility:</label>
+        <input type="text" id="facility-name" name="facility-name" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <form id="quiz-form" class="hidden">
+        <h1>Competency Test</h1>
+        <p>Answer the following questions:</p>
+
+        <!-- Quiz Questions -->
+        <label>1. How can you access the Ramsay Referrals portal from your hospital’s intranet?</label>
+        <div class="quiz-option">
+            <input type="radio" id="q1a" name="q1" value="a">
+            <label for="q1a">By navigating to SharePoint</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q1b" name="q1" value="b">
+            <label for="q1b">Through the Ramsay Referrals link on the intranet</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q1c" name="q1" value="c">
+            <label for="q1c">Both a and b</label>
+        </div>
+
+        <label>2. What button should you click on the homepage to start a new referral?</label>
+        <div class="quiz-option">
+            <input type="radio" id="q2a" name="q2" value="a">
+            <label for="q2a">Search</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q2b" name="q2" value="b">
+            <label for="q2b">New Referral</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q2c" name="q2" value="c">
+            <label for="q2c">View Referral</label>
+        </div>
+
+        <label>3. Which status filter can you apply on the Referrer page?</label>
+        <div class="quiz-option">
+            <input type="radio" id="q3a" name="q3" value="a">
+            <label for="q3a">Pending</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q3b" name="q3" value="b">
+            <label for="q3b">Draft</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q3c" name="q3" value="c">
+            <label for="q3c">Both a and b</label>
+        </div>
+
+        <label>4. What information is necessary on the Patient Details page?</label>
+        <div class="quiz-option">
+            <input type="radio" id="q4a" name="q4" value="a">
+            <label for="q4a">Patient’s phone number and email</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q4b" name="q4" value="b">
+            <label for="q4b">Referral ID</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q4c" name="q4" value="c">
+            <label for="q4c">Doctor's name</label>
+        </div>
+
+        <label>5. What should you do if the referral is urgent?</label>
+        <div class="quiz-option">
+            <input type="radio" id="q5a" name="q5" value="a">
+            <label for="q5a">Submit the referral immediately</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q5b" name="q5" value="b">
+            <label for="q5b">Call to secure the appointment and add a comment</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q5c" name="q5" value="c">
+            <label for="q5c">Save the referral as a draft</label>
+        </div>
+
+        <label>6. Which types of services can be selected for a referral?</label>
+        <div class="quiz-option">
+            <input type="radio" id="q6a" name="q6" value="a">
+            <label for="q6a">Only Psychology services</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q6b" name="q6" value="b">
+            <label for="q6b">Both Allied Health and Psychology services</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q6c" name="q6" value="c">
+            <label for="q6c">Only Dietetics services</label>
+        </div>
+
+        <label>7. Who can cancel a referral?</label>
+        <div class="quiz-option">
+            <input type="radio" id="q7a" name="q7" value="a">
+            <label for="q7a">Any staff member with access</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q7b" name="q7" value="b">
+            <label for="q7b">The individual who created the referral or a site-admin</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q7c" name="q7" value="c">
+            <label for="q7c">Only the site-admin</label>
+        </div>
+
+        <label>8. How can the recipient of a referral update its status?</label>
+        <div class="quiz-option">
+            <input type="radio" id="q8a" name="q8" value="a">
+            <label for="q8a">By clicking on “View Referral” and selecting the action pop-up</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q8b" name="q8" value="b">
+            <label for="q8b">By calling the referrer</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q8c" name="q8" value="c">
+            <label for="q8c">By going to the Referrer page</label>
+        </div>
+
+        <label>9. What information can you find in the Activity History of a referral?</label>
+        <div class="quiz-option">
+            <input type="radio" id="q9a" name="q9" value="a">
+            <label for="q9a">Patient’s family history</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q9b" name="q9" value="b">
+            <label for="q9b">Timeline of actions and updates related to the referral</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q9c" name="q9" value="c">
+            <label for="q9c">Contact details of all referring doctors</label>
+        </div>
+
+        <label>10. What is the correct way to print a referral from the referral details page?</label>
+        <div class="quiz-option">
+            <input type="radio" id="q10a" name="q10" value="a">
+            <label for="q10a">Right-click and select “Print”</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q10b" name="q10" value="b">
+            <label for="q10b">Use the “Print Preview” button and follow print options</label>
+        </div>
+        <div class="quiz-option">
+            <input type="radio" id="q10c" name="q10" value="c">
+            <label for="q10c">Copy and paste the referral details to Word</label>
+        </div>
+
+        <button type="submit">Submit Quiz</button>
+    </form>
+
+    <div id="results" class="hidden">
+        <h1>Results</h1>
+        <p id="results-message"></p>
+        <button type="button" onclick="resetForm()">Finish</button>
+    </div>
+</div>
+
+<script>
+    function showQuizPage() {
+        console.log('User info form submitted');
+
+        // Hide user info form
+        document.getElementById('user-info-form').classList.add('hidden');
+        console.log('User info form hidden');
+
+        // Show quiz form if it exists
+        const quizForm = document.getElementById('quiz-form');
+        if (quizForm) {
+            quizForm.classList.remove('hidden');
+            console.log('Quiz form shown');
+        } else {
+            console.log('Quiz form not found');
+        }
+    }
+
+    function showResultsPage(score) {
+        const resultsDiv = document.getElementById('results');
+        const resultMessage = document.getElementById('results-message');
+
+        if (score >= 8) {
+            resultMessage.textContent = `Congratulations! You scored ${score}/10. You will receive a certificate by email.`;
+        } else {
+            resultMessage.textContent = `You scored ${score}/10. Please try again.`;
+        }
+
+        resultsDiv.classList.remove('hidden');
+        document.getElementById('quiz-form').classList.add('hidden');
+    }
+
+    function calculateQuizScore() {
+        const correctAnswers = {
+            q1: 'c',
+            q2: 'b',
+            q3: 'c',
+            q4: 'a',
+            q5: 'b',
+            q6: 'b',
+            q7: 'b',
+            q8: 'a',
+            q9: 'b',
+            q10: 'b'
+        };
+        let score = 0;
+        for (const [question, answer] of Object.entries(correctAnswers)) {
+            const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+            if (selectedAnswer && selectedAnswer.value === answer) {
+                score++;
+            }
+        }
+        return score;
+    }
+
+    function resetForm() {
+        document.getElementById('user-info-form').reset();
+        document.getElementById('quiz-form').reset();
+        document.getElementById('results').classList.add('hidden');
+        document.getElementById('user-info-form').classList.remove('hidden');
+        document.getElementById('quiz-form').classList.add('hidden');
+    }
+
+    function submitData(userData) {
+        // Send data to Power Automate
+        fetch('https://prod-30.australiasoutheast.logic.azure.com:443/workflows/0465e7ba3b5f4cfbbac6d25f7a73d3b0/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=YOUR_SIGNATURE', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        }).then(response => response.json()).then(data => {
+            console.log('Success:', data);
+            resetForm();
+        }).catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+    document.getElementById('user-info-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        showQuizPage(); // Show the quiz form
+    });
+
+    document.getElementById('quiz-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        const score = calculateQuizScore();
+        showResultsPage(score);
+
+        const userData = {
+            fullName: document.getElementById('full-name').value,
+            email: document.getElementById('email').value,
+            role: document.getElementById('role').value,
+            state: document.getElementById('state').value,
+            facilityName: document.getElementById('facility-name').value,
+            score: score.toString()
+        };
+
+        submitData(userData); // Call submitData function
+    });
+</script>
+</body>
+</html>
