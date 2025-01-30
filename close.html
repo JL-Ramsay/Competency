@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing...</title>
+    <script>
+        // Send the request to Power Automate
+        fetch("https://prod-26.australiasoutheast.logic.azure.com:443/workflows/c0a7dcda3dc544458ace50c13d888d8e/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XtQt4KJqsCui13fqhx_xfzqNxqvoiFNfV2zPSEMZINc")
+            .then(response => {
+                // After request is sent, close the window
+                window.close();
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                window.close(); // Ensure the window still closes on error
+            });
+
+        // Extra fallback to close after 2 seconds
+        setTimeout(() => {
+            window.close();
+        }, 2000);
+    </script>
+</head>
+<body>
+    <p>Processing request...</p>
+</body>
+</html>
